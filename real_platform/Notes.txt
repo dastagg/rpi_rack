@@ -1,0 +1,39 @@
+Inventory List:
+
+9 Model 3B+ Raspberry Pis
+9 Sandisk 16GB Class 10 SD card
+
+1 Multiple port switch (at least 10 ports so you can connect to the LAN)
+1 (or multiple) power supply for the RPis
+
+Raspian Image:
+2019-09-26-raspbian-buster-lite.img
+
+Do normal setup (raspi-config, update/upgrade set static IP address)
+
+
+Ubuntu Image:
+ubuntu-19.10.1-preinstalled-server-arm64+raspi3.img.xz
+
+To change to static IP address:
+sudo vim /etc/netplan/50-cloud-init.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+     dhcp4: no
+     addresses: [192.168.0.130/24]
+     gateway4: 192.168.0.1
+     nameservers:
+       addresses: [192.168.0.250, 8.8.8.8]
+
+To change the hostname:
+sudo vim /etc/hostname
+sudo vim /etc/cloud/cloud.cfg
+Change
+preserve_hostname: no
+to
+preserve_hostname: yes
+
+reboot

@@ -1,0 +1,35 @@
+Create the Vagrant file
+
+Debian: debian/buster64 - version = "10.0.0"
+Ubuntu: hashicorp/bionic64
+
+Launch all the VMs
+
+ `vagrant ssh` into each one and update/upgrade to get to the lastest version
+
+
+ssh into the control VM
+
+install ansible
+    sudo apt install ansible
+
+From the Control VM, ssh into each of the VM's to add the IP address to the known-host file on the Control VM.
+
+Create a ssh key on Control and copy to each server
+    ssh-keygen  (I didn't add anything extra)
+    ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@192.168.61.1*
+
+For Debian:
+
+# To disable tunneled clear text passwords, change to no here!
+#PasswordAuthentication yes
+#PermitEmptyPasswords no
+
+PasswordAuthentication yes
+
+You can go back and change it once the ssh is copied over.
+
+halt and re-launch all the VMs
+
+Then I could run the playbooks.
+
