@@ -1,0 +1,17 @@
+2020-01-11
+
+All the Raspberry Pis are setup with the OS installed and updated.
+
+I spent most of today creating the test_platform.
+    - Created the VM using Vagrant
+    - Manually update/upgrade, set the IP address and "fixed" the sshd_config to be able to connect to each server from the Controls.
+    - Created and ran the init_setup playbook to create the sysop user and install some base software.
+    - Used Ansible Galaxy to init four roles:
+        - base
+        - www
+        - db
+        - fossil
+    - Updated the base role to use the sysop user to run a very basic task to make sure that Control will run with the sysop user instead of the vagrant user.
+    - That's it for today.
+
+

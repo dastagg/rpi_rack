@@ -1,0 +1,11 @@
+---
+# tasks file for base
+- hosts: all
+  remote_user: sysop
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+    - name: Install Prerequisites
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes

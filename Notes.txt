@@ -1,0 +1,46 @@
+This is a document that I am using to store notes and oddities that I might want to know but can't remember.
+
+
+To create the password to put in vars:
+mkpasswd --method=sha-512
+
+For Debian:
+
+Look for PasswordAuthentication, uncomment it and make sure it is "yes"
+
+# To disable tunneled clear text passwords, change to no here!
+
+#PasswordAuthentication yes
+
+#PermitEmptyPasswords no
+
+PasswordAuthentication yes
+
+You can go back and change it once the ssh is copied over.
+
+
+For Ubuntu Server:
+
+To change to static IP address:
+
+sudo vim /etc/netplan/50-cloud-init.yaml
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+     dhcp4: no
+     addresses: [192.168.0.130/24]
+     gateway4: 192.168.0.1
+     nameservers:
+       addresses: [192.168.0.250, 8.8.8.8]
+
+To change the hostname:
+
+sudo vim /etc/hostname
+
+sudo vim /etc/cloud/cloud.cfg
+
+Change preserve_hostname: no to preserve_hostname: yes
+

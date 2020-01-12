@@ -1,0 +1,7 @@
+---
+# fossil.yml : This will run the base role on all hosts
+- hosts: all
+  user: sysop
+  gather_facts: True
+  roles:
+    - { role: fossil, tags: fossil }

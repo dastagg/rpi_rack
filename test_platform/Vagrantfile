@@ -10,26 +10,11 @@ Vagrant.configure("2") do |config|
     ctrl.vm.hostname = "ctrl"
   end
 
-
-  config.vm.define "web1" do |web1|
-    web1.vm.box = "debian/buster64"
-    web1.vm.box_version = "10.0.0"
-    web1.vm.network "private_network", ip: "192.168.61.110"
-    web1.vm.hostname = "web1"
-  end
-
   config.vm.define "db1" do |db1|
     db1.vm.box = "debian/buster64"
     db1.vm.box_version = "10.0.0"
     db1.vm.network "private_network", ip: "192.168.61.120"
     db1.vm.hostname = "db1"
-  end
-
-  config.vm.define "test1" do |test1|
-    test1.vm.box = "hashicorp/bionic64"
-    test1.vm.box_version = "1905.1"
-    test1.vm.network "private_network", ip: "192.168.61.130"
-    test1.vm.hostname = "test1"
   end
 
   config.vm.define "kubem" do |kubem|
@@ -65,5 +50,18 @@ Vagrant.configure("2") do |config|
     scm.vm.box_version = "10.0.0"
     scm.vm.hostname = "scm"
     scm.vm.network "private_network", ip: "192.168.61.160"
+  end
+
+  config.vm.define "test1" do |test1|
+    test1.vm.box = "hashicorp/bionic64"
+    test1.vm.network "private_network", ip: "192.168.61.130"
+    test1.vm.hostname = "test1"
+  end
+
+  config.vm.define "web1" do |web1|
+    web1.vm.box = "debian/buster64"
+    web1.vm.box_version = "10.0.0"
+    web1.vm.network "private_network", ip: "192.168.61.110"
+    web1.vm.hostname = "web1"
   end
 end
