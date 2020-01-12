@@ -1,0 +1,70 @@
+#################################################
+# RPi Rack: Initial Rack Server Setup
+#################################################
+---
+- hosts: all
+  remote_user: sysop
+  # remote_user: pi
+  # remote_user: ubuntu
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+    - name: Install Prerequisites
+      apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+
+# User + Key Setup
+    - name: Create a new regular user with sudo privileges
+      user:
+        name: "{{ create_user }}"
+        password: "{{ create_password }}"
+        state: present
+        groups: sudo
+        append: true
+        create_home: true
+        shell: /bin/bash
+
+    - name: Set sudoers to NOPASSWD
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: Set authorized key for remote user
+      authorized_key:
+        user: "{{ create_user }}"
+        state: present
+        key: "{{ copy_local_key }}"
+
+#     - name: Disable password authentication for root
+#       lineinfile:
+#         path: /etc/ssh/sshd_config
+#         state: present
+#         regexp: '^#?PermitRootLogin'
+#         line: 'PermitRootLogin prohibit-password'
+
+# Install Packages
+    - name: Update apt
+      apt: 
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install required system packages
+      apt: 
+        name: "{{ sys_packages }}"
+        state: latest
+
+# # UFW Setup
+#     - name: UFW - Allow SSH connections
+#       ufw:
+#         rule: allow
+#         name: OpenSSH
+
+#     - name: UFW - Deny all other incoming traffic by default
+#       ufw:
+#         state: enabled
+#         policy: deny
+#         direction: incoming

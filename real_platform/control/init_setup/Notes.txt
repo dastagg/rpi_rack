@@ -1,0 +1,39 @@
+This playbook is used for the initial setup of the raspberry pis.
+
+It installs some basic software, adds the sysop user and makes sudo NOPASSWD
+
+Had to run the playbook as three different users
+
+1) As "pi" to setup the Raspian based servers
+2) As "ubuntu" to setup the Ubuntu based server
+3) As "sysop" to make sure that the "sysop" user was created correctly.
+
+
+It was run as "pi" against all the servers except test1.
+    inventory but with test1 commented out
+It was run as "ubuntu" against test1.
+    customhost (copy of inventory but only test1)
+Then ran as sysop against all.
+    inventory with everyone
+
+
+Some additional notes below:
+
+Deleting a user using deluser
+
+In order to delete a user on Debian 10, you have to use the deluser command.
+
+$ sudo deluser <username>
+
+To remove a user with its home directory, run the deluser command with the –remove-home parameter.
+
+$ sudo deluser --remove-home <username>
+
+Looking for files to backup/remove
+Removing user 'user'
+Warning: group 'user' has no more members.
+Done.
+
+To delete all the files associated with a user, use the –remove-all-files parameter.
+
+$ sudo deluser --remove-all-files <username>

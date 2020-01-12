@@ -1,0 +1,8 @@
+---
+# base.yml : This will run the base role on all hosts
+- hosts: all
+  user: sysop
+  become: yes
+  gather_facts: True
+  roles:
+    - { role: base, tags: base }

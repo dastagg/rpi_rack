@@ -1,0 +1,9 @@
+---
+# site.yml : This is a sitewide playbook
+- hosts: all
+  user: sysop
+  gather_facts: True
+  roles:
+    - { role: www, tags: www }
+    - { role: db, tags: db }
+    - { role: fossil, tags: fossil }

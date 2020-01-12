@@ -1,6 +1,6 @@
 ---
-# fossil.yml : This will run the base role on all hosts
-- hosts: all
+# source_control.yml : This will run the source_control role
+- hosts: source_control
   user: sysop
   gather_facts: True
   roles:

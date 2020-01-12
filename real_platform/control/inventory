@@ -1,0 +1,39 @@
+##########################
+# Real RPI Rack Inventory
+##########################
+
+[db]
+db1.dastagg.local
+
+[kube]
+kubem.dastagg.local
+kube2.dastagg.local
+kube3.dastagg.local
+kube4.dastagg.local
+
+[source_control]
+scm.dastagg.local
+
+[test]
+test1.dastagg.local
+
+[www]
+web1.dastagg.local
+
+[servers:children]
+db
+kube
+source_control
+test
+www
+
+##########################################################################
+# Makes sure we use Python 3 (/usr/bin/python3) on remote hosts.
+# [servers:vars] sets global values for all nodes in the "servers" group.
+# This is necessary because by default Ansible will try to use
+# /usr/bin/python, which is not available on newer Ubuntu versions.
+#########################################################################
+
+[servers:vars]
+ansible_python_interpreter=/usr/bin/python3
+

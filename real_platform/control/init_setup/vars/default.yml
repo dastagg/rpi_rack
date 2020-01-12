@@ -1,0 +1,5 @@
+---
+sys_packages: [ 'curl', 'vim', 'git']
+create_user: sysop
+create_password: <stored in .env file>
+copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

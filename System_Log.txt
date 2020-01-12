@@ -1,3 +1,18 @@
+2020-01-12
+
+Did a bit of clean up:
+    - Made sure the inventory files matched (by name) on both systems
+    - Changed "fossil" role to "source_control" as it will be both Fossil and Git.
+    - Updated all the markers in the files to say source_control
+    - File structure on both systems match now.
+
+Had to run the init_setup as "ubuntu" to get it to run, then switched back to sysop and ran all the playbooks. Didn't need to do this on the test platform as all the VM's are created with the user name "vagrant" so it all "just worked". But on the real system, the Raspian user is "pi" and the Ubuntu user is "ubuntu"
+
+So:
+    - Both systems are up and running playbooks
+    - Both systems are "in sync".
+    - Next step is to create the source_control role and get that working.
+
 2020-01-11
 
 All the Raspberry Pis are setup with the OS installed and updated.

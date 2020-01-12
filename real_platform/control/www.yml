@@ -1,0 +1,7 @@
+---
+# www.yml : This will run the www role.
+- hosts: www
+  user: sysop
+  gather_facts: True
+  roles:
+    - { role: www, tags: www }

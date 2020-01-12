@@ -1,0 +1,8 @@
+---
+# db.yml : This will run the db role on all hosts
+- hosts: all
+  user: sysop
+  become: yes
+  gather_facts: True
+  roles:
+    - { role: db, tags: db }
