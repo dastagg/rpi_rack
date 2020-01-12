@@ -1,2 +1,19 @@
 ---
-# vars file for source control
+# vars/main.yml file for source_control
+app_user: "www-data"
+http_host: "scm.dastagg.local"
+http_conf: "scm.dastagg.local.conf"
+http_port: "80"
+disable_default: true
+
+# Fossil variables
+fos_webpage_title: "These are the Fossil Repositories of dastagg."
+repo_name: "testrepo"
+
+# Main Web Page variables
+mp_title: "dastagg repos"
+mp_logo_title: "dastagg repositories"
+mp_webpage_title: "This is the home for dastagg Git and Fossil repositories."
+mp_username1: "dastagg"
+mp_username2: "staggsystems"
+mp_copyright_name: "David"

@@ -1,5 +1,14 @@
 2020-01-12
 
+Feeling good so I kept going.
+
+Created the Fossil/Apache version of the source_control role for Test.
+    - Everything is working in Test, need to copy the code to Real and see if it works.
+    - Well... everything but the Ansible creation of a test repository. The manual way works fine but I just haven't figured out how to get Ansible to run the script. Maybe tomorrow.
+
+
+2020-01-12
+
 Did a bit of clean up:
     - Made sure the inventory files matched (by name) on both systems
     - Changed "fossil" role to "source_control" as it will be both Fossil and Git.

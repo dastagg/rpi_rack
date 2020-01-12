@@ -1,2 +1,12 @@
 ---
-# tasks file for source control
+# tasks/main.yml file for source control
+
+- include: update_cache.yml
+
+- include: install.yml
+
+- include: configure_Apache2.yml
+
+- include: configure_Fossil.yml
+
+- include: service.yml

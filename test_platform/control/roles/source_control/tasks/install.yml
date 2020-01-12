@@ -1,0 +1,10 @@
+---
+# tasks/install.yml
+
+- name: Install Applications
+  apt:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - apache2
+    - fossil

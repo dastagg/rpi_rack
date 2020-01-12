@@ -1,9 +1,4 @@
 ---
 # site.yml : This is a sitewide playbook
-- hosts: all
-  user: sysop
-  gather_facts: True
-  roles:
-    - { role: www, tags: www }
-    - { role: db, tags: db }
-    - { role: fossil, tags: fossil }
+# It seems to be a "default" to have a site.yml
+# but this project doesn't have one because each role works on different servers

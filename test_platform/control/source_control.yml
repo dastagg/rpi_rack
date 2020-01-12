@@ -1,7 +1,8 @@
 ---
 # source_control.yml : This will run the source_control role.
-- hosts: all
+- hosts: source_control
   user: sysop
+  become: yes
   gather_facts: True
   roles:
     - { role: source_control, tags: source_control }

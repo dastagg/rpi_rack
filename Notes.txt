@@ -1,5 +1,7 @@
 This is a document that I am using to store notes and oddities that I might want to know but can't remember.
 
+When working with Vagrant VM's and the code isn't syncing:
+exit the VM and run "vagrant rsync" and it will sync it up.
 
 To create the password to put in vars:
 mkpasswd --method=sha-512
