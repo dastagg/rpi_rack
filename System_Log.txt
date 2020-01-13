@@ -2,9 +2,13 @@
 
 Feeling good so I kept going.
 
+Copied the files to Real. Had to fix one file on Real that was still pointing to the old "fossil" role. It ran to successful completion on the first try.
+
 Created the Fossil/Apache version of the source_control role for Test.
     - Everything is working in Test, need to copy the code to Real and see if it works.
     - Well... everything but the Ansible creation of a test repository. The manual way works fine but I just haven't figured out how to get Ansible to run the script. Maybe tomorrow.
+
+NEXT: Install Gitolite and either GitWeb or Cgit. Need to do a little research.
 
 
 2020-01-12
