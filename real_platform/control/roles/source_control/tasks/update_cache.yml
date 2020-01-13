@@ -1,0 +1,7 @@
+---
+# tasks/update_cache.yml
+
+- name: Update Cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600

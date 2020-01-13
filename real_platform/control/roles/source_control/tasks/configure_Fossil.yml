@@ -1,0 +1,35 @@
+---
+# tasks/configure_Fossil.yml
+
+- name: Copy fossil cgi script
+  template:
+    src: fossil_files/fossil.j2
+    dest: /usr/lib/cgi-bin/fossil
+    owner: "root"
+    mode: '755'
+
+- name: Create document root directory
+  file:
+    path: /var/www/fossils
+    state: directory
+    owner: "{{ app_user }}"
+    mode: '755'
+
+
+- name: Copy fossil mkrepo script
+  copy:
+    src: fossil_files/mkrepo.sh
+    dest: /var/www/fossils
+    owner: "{{ app_user }}"
+    mode: '775'
+
+- name: Copy fossil ticket config file
+  copy:
+    src: fossil_files/ticket.config
+    dest: /var/www/fossils
+    owner: "{{ app_user }}"
+    mode: '600'
+
+#Taking this out for now, doesn't work!
+# - name: Create a test repository
+#   command: "sh /var/www/fossils/mkrepo.sh {{ repo_name }}"

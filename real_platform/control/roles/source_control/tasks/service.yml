@@ -1,0 +1,7 @@
+---
+# tasks/service.yml for source_control
+
+- name: Start Apache
+  service:
+    name: apache2
+    state: started
