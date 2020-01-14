@@ -6,14 +6,23 @@ http_conf: "scm.dastagg.local.conf"
 http_port: "80"
 disable_default: true
 
-# Fossil variables
-fos_webpage_title: "These are the Fossil Repositories of dastagg."
-repo_name: "testrepo"
+# Fossil Web Page variables
+fossil_page:
+  title: "These are the Fossil Repositories of dastagg."
 
 # Main Web Page variables
-mp_title: "dastagg repos"
-mp_logo_title: "dastagg repositories"
-mp_webpage_title: "This is the home for dastagg Git and Fossil repositories."
-mp_username1: "dastagg"
-mp_username2: "staggsystems"
-mp_copyright_name: "David"
+main_page:
+  title: "dastagg repos"
+  logo_title: "dastagg repositories"
+  webpage_title: "This is the home for dastagg Git and Fossil repositories."
+  username1: "dastagg"
+  username2: "staggsystems"
+  copyright_name: "David"
+
+# Gitolite variables
+gitolite:
+    user: git
+    group: git
+    homedir: /home/git
+    admindir: /home/git/admin
+    admin: gitoliteadmin

@@ -3,10 +3,12 @@
 
 - include: update_cache.yml
 
-- include: install.yml
+- include: install_Applications.yml
 
 - include: configure_Apache2.yml
 
 - include: configure_Fossil.yml
 
 - include: service.yml
+
+- include: configure_Gitolite.yml

@@ -8,3 +8,6 @@
   loop:
     - apache2
     - fossil
+    - git
+    - gitolite3
+
