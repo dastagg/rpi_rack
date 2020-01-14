@@ -1,5 +1,5 @@
 ---
 sys_packages: [ 'curl', 'vim', 'git']
 create_user: sysop
-create_password: <stored in a .env file>
+#create_password: <stored in a .env file>
 copy_local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/rpictrl.pub') }}"

@@ -9,6 +9,8 @@
 
 - include: configure_Fossil.yml
 
-- include: service.yml
-
 - include: configure_Gitolite.yml
+
+- include: configure_cGit.yml
+
+- include: service.yml

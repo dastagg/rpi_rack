@@ -24,15 +24,9 @@
     dest: "/etc/apache2/sites-available/{{ http_conf }}"
 
 - name: Enable cgi module
-  shell: /usr/sbin/a2enmod cgi
-  notify: Reload Apache
-
-
-# This doesn't seem to work for Apache2 on Ubuntu
-# - name: Enable cgi module
-#   apache2_module:
-#     state: present
-#     name: cgi
+  apache2_module:
+    state: present
+    name: cgid
 
 - name: Enable new site
   shell: /usr/sbin/a2ensite {{ http_conf }}
