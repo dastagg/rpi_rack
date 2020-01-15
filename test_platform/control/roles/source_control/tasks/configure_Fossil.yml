@@ -1,35 +1,47 @@
 ---
 # tasks/configure_Fossil.yml
 
+- name: Create bin directory
+  file:
+    path: "/home/{{ fossil.admin }}/bin"
+    state: directory
+    owner: "{{ fossil.admin }}"
+    group: "{{ fossil.admin }}"
+    mode: '0755'
+
+- name: Create upload directory
+  file:
+    path: "/home/{{ fossil.admin }}/upload"
+    state: directory
+    owner: "{{ fossil.admin }}"
+    group: "{{ fossil.admin }}"
+    mode: '0755'
+
+- name: Copy fossil copyrepo script
+  copy:
+    src: fossil_files/copyrepo.sh
+    dest: "/home/{{ fossil.admin }}/bin"
+    owner: "{{ fossil.admin }}"
+    group: "{{ fossil.admin }}"
+    mode: '0755'
+
 - name: Copy fossil cgi script
   template:
     src: fossil_files/fossil.j2
     dest: /usr/lib/cgi-bin/fossil
-    owner: "root"
-    mode: '755'
+    owner: "{{ app_user }}"
+    mode: '0755'
 
 - name: Create document root directory
   file:
     path: /var/www/fossils
     state: directory
     owner: "{{ app_user }}"
-    mode: '755'
+    mode: '0755'
 
-
-- name: Copy fossil mkrepo script
+- name: Copy test fossil repository
   copy:
-    src: fossil_files/mkrepo.sh
-    dest: /var/www/fossils
+    src: fossil_files/pp-python-testing-pytest.fsl
+    dest: /var/www/fossils/
     owner: "{{ app_user }}"
-    mode: '775'
-
-- name: Copy fossil ticket config file
-  copy:
-    src: fossil_files/ticket.config
-    dest: /var/www/fossils
-    owner: "{{ app_user }}"
-    mode: '600'
-
-#Taking this out for now, doesn't work!
-# - name: Create a test repository
-#   command: "sh /var/www/fossils/mkrepo.sh {{ repo_name }}"
+    mode: '0644'

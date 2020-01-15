@@ -6,9 +6,11 @@ http_conf: "scm.dastagg.local.conf"
 http_port: "80"
 disable_default: true
 
-# Fossil Web Page variables
-fossil_page:
-  title: "These are the Fossil Repositories of dastagg."
+# Fossil variables
+fossil:
+  page_title: "These are the Fossil Repositories of dastagg."
+  admin: "sysop"
+
 
 # Main Web Page variables
 main_page:
