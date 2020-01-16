@@ -1,3 +1,16 @@
+2020-01-16
+
+source_control all works (I think).
+
+I am still testing out the functions but so far, all good.
+
+I am changing my "workflow" with Fossil though.
+
+Before, I would create the .fsl file on the server, then clone it to local. Now I am creating the .fsl locally, if I decide I want it up on the server, I move it up and clone it down to local.
+
+I will let it sit for a day or two then go back and see if anything needs to be "cleaned up".
+
+
 2020-01-12
 
 Feeling good so I kept going.
