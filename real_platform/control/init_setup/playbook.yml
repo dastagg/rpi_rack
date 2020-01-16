@@ -1,10 +1,11 @@
 #################################################
 # RPi Rack: Initial Rack Server Setup
 #################################################
+# Don't forget to ssh-copyid to the server first.
 ---
-- hosts: all
+- hosts: source_control
   remote_user: sysop
-  # remote_user: pi
+  #remote_user: pi
   # remote_user: ubuntu
   become: true
   vars_files:

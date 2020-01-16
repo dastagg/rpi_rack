@@ -8,3 +8,11 @@
   loop:
     - apache2
     - fossil
+    - git
+    - gitolite3
+    - cgit
+    - python3-docutils
+    - python3-markdown
+    - python3-pygments
+
+

@@ -1,0 +1,52 @@
+# cgit config
+# see cgitrc(5) for details
+
+css=/cgit-css/cgit.css
+logo=/cgit-css/cgit.png
+favicon=/cgit-css/favicon.ico
+
+# Highlight source code with python pygments-based highlighter
+source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+
+# Format markdown, restructuredtext, manpages, text files, and html files
+# through the right converters
+about-filter=/usr/lib/cgit/filters/about-formatting.sh
+
+# Search for these files in the root of the default branch of repositories
+# for coming up with the about page:
+readme=:README.md
+readme=:README.rst
+readme=:README.txt
+readme=:README
+
+# List of common mimetypes
+mimetype.gif=image/gif
+mimetype.html=text/html
+mimetype.jpg=image/jpeg
+mimetype.jpeg=image/jpeg
+mimetype.pdf=application/pdf
+mimetype.png=image/png
+mimetype.svg=image/svg+xml
+mimetype-file=/etc/mime.types
+
+root-title=dastagg and staggsystems
+root-desc=Git Repositories
+
+# these two dont do what they say
+cache-root-ttl=1
+cache-scanrc-ttl=1
+enable-commit-graph=1
+enable-index-links=0
+enable-log-linecount=1
+enable-http-clone=1
+enable-index-owner=0
+repository-sort=age
+case-sensitive-sort=0
+
+# Enable caching of up to 1000 output entries
+cache-size=1000
+
+#agefile=info/web/last-modified
+#section-from-path=1
+project-list=/home/git/projects.list
+scan-path=/home/git/repositories

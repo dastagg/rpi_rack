@@ -1,0 +1,53 @@
+---
+- name: add git user
+  user:
+    name: "{{ gitolite.user }}"
+    home: "{{ gitolite.homedir }}"
+    state: present
+
+- name: create git admin directory
+  file:
+    path: "{{ gitolite.admindir }}"
+    owner: "{{ gitolite.user }}"
+    group: "{{ gitolite.group }}"
+    state: directory
+
+- name: set permissions on {{ gitolite.homedir }}
+  file:
+    path: "{{ gitolite.homedir }}"
+    recurse: yes
+    owner: "{{ gitolite.user }}"
+    group: "{{ gitolite.group }}"
+
+- name: adding www-data to group git
+  user:
+    name: www-data
+    groups: git
+    append: yes
+
+
+- name: copy admin key
+  copy:
+    src: "gitolite_files/{{ gitolite.admin }}.pub"
+    dest: "{{ gitolite.admindir }}/{{ gitolite.admin }}.pub"
+
+- name: copy gitolite.rc
+  copy:
+    src: gitolite_files/gitolite.rc
+    dest: "{{ gitolite.homedir }}/.gitolite.rc"
+
+- name: configure gitolite
+  command:  gitolite setup -pk {{ gitolite.admindir }}/{{ gitolite.admin }}.pub chdir={{ gitolite.homedir }}
+  become_user: git
+
+- name: set permissions on {{ gitolite.homedir }}/projects.list
+  file:
+    path: "{{ gitolite.homedir }}/projects.list"
+    mode: g+r
+
+- name: set permissions on {{ gitolite.homedir }}/repositories
+  file:
+    path: "{{ gitolite.homedir }}/repositories"
+    recurse: yes
+    mode: g+rx
+

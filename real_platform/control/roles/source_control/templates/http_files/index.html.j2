@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>{{ mp_title }}</title>
+    <title>{{ main_page.title }}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,7 +25,7 @@
 
       <!-- Logo -->
         <a href="index.html" class="logo">
-          <span class="title">{{ mp_logo_title }}</span>
+          <span class="title">{{ main_page.logo_title }}</span>
         </a>
 
       <!-- Nav -->
@@ -43,7 +43,7 @@
     <h2>Menu</h2>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="/gitweb/">GitWeb</a></li>
+      <li><a href="/cgit/">Git Repositories</a></li>
       <li><a href="/cgi-bin/fossil/">Fossil SCM</a></li>
     </ul>
   </nav>
@@ -52,20 +52,18 @@
   <div id="main">
     <div class="inner">
       <header>
-        <h1>{{ mp_webpage_title }}</h1>
+        <h1>{{ main_page.webpage_title }}</h1>
         <p>Take a look around if you want to. Some of this code is also available on github.com</p>
-        <h4>The GITWEB area is "restricted" though.</h4>
-        <p>Most of the code in there is open source but some of it is code created during online classes or other instruction. I don't know what the copyright on that is, so it is not available to the general public.</p>
       </header>
       <section class="tiles">
         <article class="style1">
           <span class="image">
             <img src="images/pic01.jpg" alt="" />
           </span>
-          <a href="/gitweb/">
-            <h2>GitWeb</h2>
+          <a href="/cgit/">
+            <h2>Git Repos</h2>
             <div class="content">
-              <p>GitWeb Repositories</p>
+              <p>Git Repositories</p>
             </div>
           </a>
         </article>
@@ -90,13 +88,13 @@
       <section>
         <h2>Follow</h2>
         <ul class="icons">
-          <li><a href="https://github.com/{{ mp_username1 }}" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
-          <li><a href="https://twitter.com/{{ mp_username1 }}" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-          <li><a href="https://github.com/{{ mp_username2 }}" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+          <li><a href="https://github.com/{{ main_page.username1 }}" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+          <li><a href="https://twitter.com/{{ main_page.username1 }}" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/{{ main_page.username2 }}" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
         </ul>
       </section>
       <ul class="copyright">
-        <li>&copy; 2019 {{ mp_copyright_name }}. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>&copy; 2019 {{ main_page.copyright_name }}. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
       </ul>
     </div>
   </footer>

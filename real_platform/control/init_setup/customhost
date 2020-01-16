@@ -1,6 +1,10 @@
 ##########################
-# Custom Inventory
+# RPI Rack Inventory
 ##########################
+# Run the playbook against this file when doing
+# the initial install on the Ubuntu server.
+# This way, the hosts: all can stay the same.
+# You could change the hosts but...
 
 [test]
 test1.dastagg.local

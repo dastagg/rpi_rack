@@ -1,0 +1,8 @@
+---
+# tasks/configure/cGit.yml
+
+- name: copy cgitrc file
+  copy:
+    src: cgit_files/cgitrc
+    dest: /etc/cgitrc
+
